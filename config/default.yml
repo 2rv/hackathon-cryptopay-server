@@ -13,6 +13,8 @@ admin:
 db:
   type: 'postgres'
 
+BOT_TOKEN: 487528313:AAFOpqZFZG9hfyVXmv-qRK0znyW5Kv_zJOg
+
 jwt:
   expiresIn: '99999h'
 

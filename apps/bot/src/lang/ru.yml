@@ -1,0 +1,19 @@
+COMMON:
+  BUTTON_BACK: 'Назад'
+  BUTTON_MAIN_BACK: 'На главную'
+  LOADING: 'Загрузка...'
+  EMPTY_LIST: 'Список пустой'
+  BOT_LINK: '@uqXX23RZkVqkzAK557dF2J4t_bot'
+
+WELCOME:
+  TITLE: 'Добро пожаловать в CryptoPay!'
+
+FAQ:
+  INFO: 'Используя этот бот, вы можете посмотреть статус своего баланса'
+
+MAIN_MENU:
+  FAQ: 'FAQ'
+  BALANCE: 'Баланс'
+
+BALANCE:
+  STATUS: "*Баланс аккаунта*:\n{{rub}} RUB | {{btc}} BTC"
