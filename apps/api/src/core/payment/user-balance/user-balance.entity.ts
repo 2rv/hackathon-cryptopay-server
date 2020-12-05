@@ -40,7 +40,7 @@ export class UserBalance extends BaseEntity {
   @UpdateDateColumn()
   updateDate: string;
 
-  private async getBitcoinBalance(): Promise<number> {
+  private async getUsdBalance(): Promise<number> {
     try {
       const { data } = await HttpRequest.get(
         `https://api.binance.com/api/v3/ticker/price?symbol=BTCUSDT`,
@@ -53,10 +53,35 @@ export class UserBalance extends BaseEntity {
     }
   }
 
-  async getUsdBalance() {
+  private async getUahBalance(): Promise<number> {
+    try {
+      const { data } = await HttpRequest.get(
+        `https://api.binance.com/api/v3/ticker/price?symbol=BTCUAH`,
+      );
+      let resultUah = data.price * this.bitcoinBalance;
+      resultUah = Number(resultUah.toFixed(8));
+      return resultUah;
+    } catch {
+      return 0;
+    }
+  }
+
+  async calculateUsdBalance() {
     let balance = 0;
 
-    const bitcoinBalance = await this.getBitcoinBalance();
+    const bitcoinBalance = await this.getUsdBalance();
+
+    balance += bitcoinBalance;
+
+    balance = Number(balance.toFixed(2));
+
+    return balance;
+  }
+
+  async calculateUahBalance() {
+    let balance = 0;
+
+    const bitcoinBalance = await this.getUahBalance();
 
     balance += bitcoinBalance;
 
