@@ -5,7 +5,7 @@ import { ConnectionOptions } from 'typeorm';
 const dbConfig = config.get('db');
 
 export const databaseOptions: ConnectionOptions = {
-  type: dbConfig.TYPE,
+  type: dbConfig.type,
   url: process.env.DATABASE_URL || dbConfig.url,
   entities: ApiEntities,
   ssl: true,
