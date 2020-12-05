@@ -8,9 +8,7 @@ import { PassportModule } from '@nestjs/passport';
 import { JwtConfig } from '../../config/jwt.config';
 import { JwtStrategy } from './jwt.strategy';
 import { SettingsService } from './settings/settings.service';
-import { ResetService } from './reset/reset.service';
 import { PaymentModule } from '../payment/payment.module';
-import { ResetController } from './reset/reset.controller';
 import { SettingsController } from './settings/settings.controller';
 
 @Module({
@@ -20,8 +18,8 @@ import { SettingsController } from './settings/settings.controller';
     TypeOrmModule.forFeature([UserRepository]),
     forwardRef(() => PaymentModule),
   ],
-  controllers: [AuthController, ResetController, SettingsController],
-  providers: [AuthService, JwtStrategy, SettingsService, ResetService],
+  controllers: [AuthController, SettingsController],
+  providers: [AuthService, JwtStrategy, SettingsService],
   exports: [JwtStrategy, PassportModule, AuthService],
 })
 export class AuthModule {}

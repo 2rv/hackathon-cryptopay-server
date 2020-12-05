@@ -17,6 +17,7 @@ BOT_TOKEN: 487528313:AAFOpqZFZG9hfyVXmv-qRK0znyW5Kv_zJOg
 
 jwt:
   expiresIn: '99999h'
+  secret: 'FKdksk12l3ldlsfdlLlsdll123l05kgjgk04jdkgn6kk2d0fkgsdk32ldovyjkxg'
 
 bitcoin:
   host: '10.190.40.40'
