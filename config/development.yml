@@ -1,0 +1,12 @@
+db:
+  url: postgres://cinzazmhqjpfeo:dc370d08da507e92d197817291135b8e162e29a347269b279694c0b65f28d043@ec2-54-247-107-109.eu-west-1.compute.amazonaws.com:5432/drlpsfo52q5er
+  synchronize: true
+
+jwt:
+  secret: 'FKdksk12l3ldlsfdlLlsdll123l05kgjgk04jdkgn6kk2d0fkgsdk32ldovyjkxg'
+
+bitcoin:
+  host: '10.190.40.40'
+  port: '8332'
+  username: 'EyR6LHKS'
+  password: 'FR4SkKUvU4GtzKDjcUT4KPxC7xt5bsPgFfS5hhp8UFfWVyxZ'

@@ -1,0 +1,52 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "declaration": true,
+    "removeComments": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "target": "es2017",
+    "sourceMap": true,
+    "outDir": "./dist",
+    "baseUrl": "./",
+    "incremental": true,
+    "paths": {
+      "@app/bitcoin": [
+        "libs/bitcoin/src"
+      ],
+      "@app/bitcoin/*": [
+        "libs/bitcoin/src/*"
+      ],
+      "@app/bitcoin-api": [
+        "libs/bitcoin-api/src"
+      ],
+      "@app/bitcoin-api/*": [
+        "libs/bitcoin-api/src/*"
+      ],
+      "@app/captcha": [
+        "libs/captcha/src"
+      ],
+      "@app/captcha/*": [
+        "libs/captcha/src/*"
+      ],
+      "@app/user": [
+        "libs/user/src"
+      ],
+      "@app/user/*": [
+        "libs/user/src/*"
+      ],
+      "@app/utils": [
+        "libs/utils/src"
+      ],
+      "@app/utils/*": [
+        "libs/utils/src/*"
+      ]
+    }
+  },
+  "exclude": [
+    "node_modules",
+    "dist",
+    "static",
+    "assets"
+  ]
+}

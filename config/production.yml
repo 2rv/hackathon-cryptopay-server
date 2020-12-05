@@ -1,0 +1,8 @@
+db:
+  synchronize: true
+
+bitcoin:
+  host: '10.190.40.40'
+  port: '8332'
+  username: 'EyR6LHKS'
+  password: 'FR4SkKUvU4GtzKDjcUT4KPxC7xt5bsPgFfS5hhp8UFfWVyxZ'

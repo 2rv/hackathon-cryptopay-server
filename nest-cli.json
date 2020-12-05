@@ -1,0 +1,75 @@
+{
+  "collection": "@nestjs/schematics",
+  "sourceRoot": "apps/api/src",
+  "monorepo": true,
+  "root": "apps/api",
+  "compilerOptions": {
+    "webpack": true,
+    "tsConfigPath": "apps/api/tsconfig.app.json"
+  },
+  "projects": {
+    "api": {
+      "type": "application",
+      "root": "apps/api",
+      "entryFile": "main",
+      "sourceRoot": "apps/api/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/api/tsconfig.app.json"
+      }
+    },
+    "observe": {
+      "type": "application",
+      "root": "apps/observe",
+      "entryFile": "main",
+      "sourceRoot": "apps/observe/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/observe/tsconfig.app.json"
+      }
+    },
+    "static": {
+      "type": "application",
+      "root": "apps/static",
+      "entryFile": "main",
+      "sourceRoot": "apps/static/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/static/tsconfig.app.json"
+      }
+    },
+    "bitcoin-api": {
+      "type": "library",
+      "root": "libs/bitcoin-api",
+      "entryFile": "index",
+      "sourceRoot": "libs/bitcoin-api/src",
+      "compilerOptions": {
+        "tsConfigPath": "libs/bitcoin-api/tsconfig.lib.json"
+      }
+    },
+    "captcha": {
+      "type": "library",
+      "root": "libs/captcha",
+      "entryFile": "index",
+      "sourceRoot": "libs/captcha/src",
+      "compilerOptions": {
+        "tsConfigPath": "libs/captcha/tsconfig.lib.json"
+      }
+    },
+    "utils": {
+      "type": "library",
+      "root": "libs/utils",
+      "entryFile": "index",
+      "sourceRoot": "libs/utils/src",
+      "compilerOptions": {
+        "tsConfigPath": "libs/utils/tsconfig.lib.json"
+      }
+    },
+    "admin": {
+      "type": "application",
+      "root": "apps/admin",
+      "entryFile": "main",
+      "sourceRoot": "apps/admin/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/admin/tsconfig.app.json"
+      }
+    }
+  }
+}

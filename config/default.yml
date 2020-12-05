@@ -1,0 +1,23 @@
+api:
+  port: 4000
+
+observe:
+  port: 4000
+
+static:
+  port: 5000
+
+admin:
+  port: 4000
+
+db:
+  type: 'postgres'
+
+jwt:
+  expiresIn: '99999h'
+
+bitcoin:
+  host: '10.190.40.40'
+  port: '8332'
+  username: 'EyR6LHKS'
+  password: 'FR4SkKUvU4GtzKDjcUT4KPxC7xt5bsPgFfS5hhp8UFfWVyxZ'

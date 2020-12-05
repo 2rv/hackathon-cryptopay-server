@@ -1,0 +1,5 @@
+export enum Intervales {
+  NEW_TRANSACTIONS = 1000 * 60 * 1,
+  CONFIRM_TRANSACTIONS = 1000 * 60 * 1,
+  LATEST_TRANSACTION_TTL = 60 * 24,
+}
