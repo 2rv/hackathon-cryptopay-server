@@ -1,4 +1,4 @@
 export interface UserBalanceDto {
   bitcoinBalance: number;
-  totalBalance: number;
+  usdBalance: number;
 }

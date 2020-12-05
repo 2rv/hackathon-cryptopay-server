@@ -13,7 +13,7 @@ import { UserBalance } from '../payment/user-balance/user-balance.entity';
 import { generatePasswordSalt, generateBcryptHash } from 'libs/utils';
 
 @Entity()
-@Unique(['login', 'nickname', 'email'])
+@Unique(['login'])
 export class User extends BaseEntity {
   @PrimaryGeneratedColumn()
   id: number;
@@ -21,14 +21,8 @@ export class User extends BaseEntity {
   @Column({ unique: true })
   login: string;
 
-  @Column({ nullable: false, unique: true })
-  nickname: string;
-
   @Column({ nullable: false })
   password: string;
-
-  @Column({ nullable: true, unique: true })
-  email: string;
 
   @Column({
     type: 'enum',
@@ -37,9 +31,6 @@ export class User extends BaseEntity {
     nullable: false,
   })
   role: UserRole;
-
-  @Column({ nullable: true })
-  pgp: string;
 
   @OneToOne(
     type => UserBalance,

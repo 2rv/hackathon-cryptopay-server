@@ -53,7 +53,7 @@ export class UserBalance extends BaseEntity {
     }
   }
 
-  async getTotalBalance() {
+  async getUsdBalance() {
     let balance = 0;
 
     const bitcoinBalance = await this.getBitcoinBalance();

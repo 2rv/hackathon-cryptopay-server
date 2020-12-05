@@ -13,12 +13,11 @@ import { UserSignUpDto } from './dto/user-sign-up.dto';
 @EntityRepository(User)
 export class UserRepository extends Repository<User> {
   async signUp(userSignUpDto: UserSignUpDto): Promise<User> {
-    const { login, nickname, password } = userSignUpDto;
+    const { login, password } = userSignUpDto;
 
     const user: User = this.create();
 
     user.login = login.toLowerCase();
-    user.nickname = nickname;
     user.password = await User.hashPassword(password);
 
     try {

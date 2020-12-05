@@ -67,9 +67,6 @@ export class AuthService {
   async getAccountInfo(user: User): Promise<AccountDataDto> {
     const accountData: AccountDataDto = {
       id: user.id,
-      nickname: user.nickname,
-      email: user.email,
-      pgp: user.pgp,
       login: user.login,
     };
 
