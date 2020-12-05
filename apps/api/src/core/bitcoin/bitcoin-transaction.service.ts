@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { BitcoinTransactionRepository } from './bitcoin-transaction.repository';
-import { UserBalance } from '../payment/user-balance/user-balance/user-balance.entity';
+import { UserBalance } from '../payment/user-balance/user-balance.entity';
 import { BitcoinTransactionPaginationDto } from './dto/bitcoin-transaction-pagination.dto';
 import { BitcoinCreateTransactionDto } from './dto/bitcoin-create-transaction.dto';
 import { UserBalanceService } from '../payment/user-balance/user-balance.service';

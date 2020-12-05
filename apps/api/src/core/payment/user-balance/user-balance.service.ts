@@ -4,7 +4,7 @@ import { User } from '../../auth/user.entity';
 import { InjectRepository } from '@nestjs/typeorm';
 import { UserBalanceRepository } from './user-balance.repository';
 import { UserBalanceDto } from '../dto/user-balance.dto';
-import { UserBalance } from './user-balance/user-balance.entity';
+import { UserBalance } from './user-balance.entity';
 import { CurrencyType } from 'apps/api/src/enums/currency.enum';
 import { Errors } from '../enum/errors.enum';
 

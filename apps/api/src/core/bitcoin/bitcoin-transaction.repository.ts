@@ -1,5 +1,5 @@
 import { Repository, EntityRepository } from 'typeorm';
-import { UserBalance } from '../payment/user-balance/user-balance/user-balance.entity';
+import { UserBalance } from '../payment/user-balance/user-balance.entity';
 import { BitcoinTransaction } from './bitcoin-transaction.entity';
 import { BitcoinTransactionPaginationDto } from './dto/bitcoin-transaction-pagination.dto';
 import { PaginationInterface } from '../../interfaces/pagination.interface';

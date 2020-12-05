@@ -1,11 +1,11 @@
 import { Repository, EntityRepository } from 'typeorm';
-import { UserBalance } from './user-balance/user-balance.entity';
 import { User } from '../../auth/user.entity';
 import {
   ConflictException,
   InternalServerErrorException,
 } from '@nestjs/common';
 import { Errors } from '../enum/errors.enum';
+import { UserBalance } from './user-balance.entity';
 
 @EntityRepository(UserBalance)
 export class UserBalanceRepository extends Repository<UserBalance> {

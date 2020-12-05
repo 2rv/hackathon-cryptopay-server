@@ -1,4 +1,4 @@
-import { UserBalance } from '../../payment/user-balance/user-balance/user-balance.entity';
+import { UserBalance } from '../../payment/user-balance/user-balance.entity';
 
 export interface BitcoinCreateTransactionDto {
   address: string;
