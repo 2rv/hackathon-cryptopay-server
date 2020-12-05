@@ -11,6 +11,7 @@ import {
 import { User } from '../../auth/user.entity';
 import { HttpRequest } from 'libs/utils/src/http';
 import { BitcoinTransaction } from '../../bitcoin/bitcoin-transaction.entity';
+import { Payment } from '../payment.entity';
 
 @Entity()
 export class UserBalance extends BaseEntity {

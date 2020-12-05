@@ -1,4 +1,13 @@
-import { Controller, Get, UseGuards, Post, Query } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  UseGuards,
+  Post,
+  Query,
+  Body,
+  ValidationPipe,
+  Param,
+} from '@nestjs/common';
 import { AuthGuard } from '@nestjs/passport';
 import { GetAccount } from '../../decorators/get-account.decorator';
 import { User } from '../auth/user.entity';
@@ -9,6 +18,9 @@ import { PaymentHistoryService } from './payment-history.service';
 import { BitcoinTransactionPaginationDto } from '../bitcoin/dto/bitcoin-transaction-pagination.dto';
 import { UserBalanceService } from './user-balance/user-balance.service';
 import { AccountGuard } from '../../guards/account.guard';
+import { Payment } from './payment.entity';
+import { CreatePaymentRequestDto } from './dto/create-payment-request.dto';
+import { PaymentService } from './payment.service';
 
 @Controller('payment')
 export class PaymentController {
@@ -16,12 +28,34 @@ export class PaymentController {
     private userBalanceService: UserBalanceService,
     private paymentAddressService: PaymentAddressService,
     private paymentHistoryService: PaymentHistoryService,
+    private paymentService: PaymentService,
   ) {}
 
   @Get('/balance')
   @UseGuards(AuthGuard())
   async getAccountBalance(@GetAccount() user: User): Promise<UserBalanceDto> {
     return this.userBalanceService.getAccountBalance(user);
+  }
+
+  @Post('/transfer')
+  @UseGuards(AuthGuard())
+  async generateTransfer(
+    @Body(ValidationPipe) createPaymentRequestDto: CreatePaymentRequestDto,
+    @GetAccount() user: User,
+  ): Promise<Payment> {
+    return this.paymentService.createPaymentRequest(
+      user,
+      createPaymentRequestDto,
+    );
+  }
+
+  @Post('/transfer/:transferId/pay')
+  @UseGuards(AuthGuard())
+  async payTransferById(
+    @GetAccount() user: User,
+    @Param('transferId') transferId: number,
+  ): Promise<void> {
+    return this.paymentService.payTransferByHash(transferId, user);
   }
 
   @Get('/address')

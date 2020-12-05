@@ -8,12 +8,14 @@ import { PaymentHistoryService } from './payment-history.service';
 import { UserBalanceRepository } from './user-balance/user-balance.repository';
 import { UserBalanceService } from './user-balance/user-balance.service';
 import { PaymentCurrencyService } from './payment-currency.service';
+import { PaymentRepository } from './payment.repository';
+import { PaymentService } from './payment.service';
 
 @Module({
   imports: [
     forwardRef(() => AuthModule),
     forwardRef(() => BitcoinModule),
-    TypeOrmModule.forFeature([UserBalanceRepository]),
+    TypeOrmModule.forFeature([UserBalanceRepository, PaymentRepository]),
   ],
   controllers: [PaymentController],
   providers: [
@@ -21,6 +23,7 @@ import { PaymentCurrencyService } from './payment-currency.service';
     PaymentAddressService,
     PaymentHistoryService,
     PaymentCurrencyService,
+    PaymentService,
   ],
   exports: [
     UserBalanceService,
