@@ -26,7 +26,8 @@ export class UserBalanceService {
 
     return {
       bitcoinBalance: balance.bitcoinBalance,
-      usdBalance: await balance.getUsdBalance(),
+      usdBalance: await balance.calculateUsdBalance(),
+      uahBalance: await balance.calculateUahBalance(),
     };
   }
 
