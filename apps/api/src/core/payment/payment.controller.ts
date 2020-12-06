@@ -50,7 +50,7 @@ export class PaymentController {
     );
   }
 
-  @Post('/request/history')
+  @Get('/request/history')
   @UseGuards(AuthGuard())
   async getTransferHistory(
     @GetAccount() user: User,
