@@ -32,10 +32,10 @@ export class PaymentHistoryRepository extends Repository<PaymentHistory> {
     query.leftJoin('payment_history.user', 'user');
     query.leftJoin('payment_history.payment', 'payment');
     query.leftJoin('payment.user', 'paymentUser');
-    query.where(`user.id = ${user.id}`);
+    query.where(`paymentUser.id = ${user.id}`);
 
     query.select([
-      'paymentUser.login',
+      'user.login',
       'payment.amount',
       'payment_history.createDate',
       'payment.hesh',

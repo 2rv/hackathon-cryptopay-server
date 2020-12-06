@@ -38,7 +38,7 @@ export class PaymentController {
     return this.userBalanceService.getAccountBalance(user);
   }
 
-  @Post('/transfer')
+  @Post('/request')
   @UseGuards(AuthGuard())
   async generateTransfer(
     @Body(ValidationPipe) createPaymentRequestDto: CreatePaymentRequestDto,
@@ -50,7 +50,7 @@ export class PaymentController {
     );
   }
 
-  @Post('/transfer/history')
+  @Post('/request/history')
   @UseGuards(AuthGuard())
   async getTransferHistory(
     @GetAccount() user: User,
@@ -58,13 +58,13 @@ export class PaymentController {
     return this.paymentService.getPaymentHistory(user);
   }
 
-  @Post('/transfer/:transferId/pay')
+  @Post('/request/:requestId/pay')
   @UseGuards(AuthGuard())
   async payTransferById(
     @GetAccount() user: User,
-    @Param('transferId') transferId: number,
+    @Param('requestId') requestId: number,
   ): Promise<void> {
-    return this.paymentService.payTransferByHash(transferId, user);
+    return this.paymentService.payTransferByHash(requestId, user);
   }
 
   @Get('/address')
