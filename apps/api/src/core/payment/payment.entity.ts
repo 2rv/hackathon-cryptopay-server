@@ -19,7 +19,7 @@ export class Payment extends BaseEntity {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @PrimaryColumn({ type: 'uuid' })
+  @Column({ type: 'uuid' })
   @Generated('uuid')
   hash: string;
 
