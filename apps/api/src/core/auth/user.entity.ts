@@ -58,6 +58,8 @@ export class User extends BaseEntity {
   )
   @JoinColumn()
   paymentHistory: PaymentHistory;
+
+  @OneToMany(
     type => Transfer,
     transfer => transfer.user,
     { eager: false },
