@@ -73,7 +73,7 @@ export class UserBalanceService {
     });
 
     if (currency === CurrencyType.BTC) {
-      let result = balance.bitcoinBalance - amount;
+      let result = balance.bitcoinBalance + amount;
       result = Number(result.toFixed(8));
       balance.bitcoinBalance = result;
     }

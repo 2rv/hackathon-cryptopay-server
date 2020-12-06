@@ -7,10 +7,13 @@ import {
   OneToOne,
   OneToMany,
   CreateDateColumn,
+  JoinColumn,
 } from 'typeorm';
 import { UserRole } from '../../enums/user-role.enum';
 import { UserBalance } from '../payment/user-balance/user-balance.entity';
 import { generatePasswordSalt, generateBcryptHash } from 'libs/utils';
+import { Payment } from '../payment/payment.entity';
+import { PaymentHistory } from '../payment/payment-history.entity';
 import { Transfer } from '../transfer/transfer.entity';
 
 @Entity()
@@ -41,6 +44,20 @@ export class User extends BaseEntity {
   balance: UserBalance;
 
   @OneToMany(
+    type => Payment,
+    payment => payment.user,
+    { eager: false },
+  )
+  @JoinColumn()
+  payment: Payment;
+
+  @OneToMany(
+    type => PaymentHistory,
+    paymentHistory => paymentHistory.user,
+    { eager: false },
+  )
+  @JoinColumn()
+  paymentHistory: PaymentHistory;
     type => Transfer,
     transfer => transfer.user,
     { eager: false },
