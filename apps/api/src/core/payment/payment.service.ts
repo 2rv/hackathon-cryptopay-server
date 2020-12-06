@@ -35,10 +35,14 @@ export class PaymentService {
   async getTransferByHash(transferId: string): Promise<Payment> {
     return this.paymentRepository.findOne({
       where: [{ hash: transferId }],
+      relations: ['user'],
     });
   }
 
-  async payTransferByHash(transferId: string, user: User): Promise<void> {
+  async payTransferByHash(
+    transferId: string,
+    user: User,
+  ): Promise<PaymentHistory> {
     const payment = await this.paymentRepository.findOne({
       where: [{ hash: transferId }],
       relations: ['user'],
@@ -64,7 +68,7 @@ export class PaymentService {
       payment.amount,
     );
 
-    await this.paymentHistoryRepository.createPaymentHistory(payment, user);
+    return this.paymentHistoryRepository.createPaymentHistory(payment, user);
   }
 
   async getPaymentHistory(user: User): Promise<PaymentHistory[]> {

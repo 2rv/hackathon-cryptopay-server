@@ -50,7 +50,7 @@ export class PaymentController {
     );
   }
 
-  @Post('/request/history')
+  @Get('/request/history')
   @UseGuards(AuthGuard())
   async getTransferHistory(
     @GetAccount() user: User,
@@ -71,7 +71,7 @@ export class PaymentController {
   async payTransferById(
     @GetAccount() user: User,
     @Param('requestId') requestId: string,
-  ): Promise<void> {
+  ): Promise<PaymentHistory> {
     return this.paymentService.payTransferByHash(requestId, user);
   }
 
