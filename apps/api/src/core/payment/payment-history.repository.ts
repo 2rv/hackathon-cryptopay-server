@@ -37,8 +37,8 @@ export class PaymentHistoryRepository extends Repository<PaymentHistory> {
     query.select([
       'user.login',
       'payment.amount',
-      'payment_history.createDate',
       'payment.hash',
+      'payment_history.createDate',
     ]);
 
     return query.getMany();

@@ -5,9 +5,9 @@ import {
   PrimaryGeneratedColumn,
   Column,
   OneToOne,
-  OneToMany,
   CreateDateColumn,
   JoinColumn,
+  OneToMany,
 } from 'typeorm';
 import { UserRole } from '../../enums/user-role.enum';
 import { UserBalance } from '../payment/user-balance/user-balance.entity';
@@ -16,7 +16,7 @@ import { Payment } from '../payment/payment.entity';
 import { PaymentHistory } from '../payment/payment-history.entity';
 import { Transfer } from '../transfer/transfer.entity';
 
-@Entity()
+@Entity({ name: 'user' })
 @Unique(['login'])
 export class User extends BaseEntity {
   @PrimaryGeneratedColumn()
