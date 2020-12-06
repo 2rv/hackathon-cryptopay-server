@@ -1,11 +1,11 @@
 import * as config from 'config';
 import { UserEntity } from '../core/user/user.entity';
 import { ConnectionOptions } from 'typeorm';
-import { UserBalanceEntity } from '../core/payment/user-balance.entity';
+import { ApiEntities } from 'apps/api/src/config/typeorm.config';
 
-const dbConfig = config.get('DB');
+const dbConfig = config.get('db');
 
-export const Entities = [UserEntity, UserBalanceEntity];
+const Entities = [UserEntity, ...ApiEntities];
 
 export const databaseOptions: ConnectionOptions = {
   type: dbConfig.type,

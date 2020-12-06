@@ -11,17 +11,8 @@ export const createQuestion = ({ name, field, menu, bot }) => {
 
       if (!ctx.session.form) {
         ctx.session.form = {
-          firstName: null,
-          lastName: null,
-          middleName: null,
-          dayBirth: null,
-          monthBirth: null,
-          yearBirth: null,
-          telephone: null,
-          car: null,
-          passport: null,
-          inn: null,
-          snils: null,
+          login: null,
+          password: null,
           [field]: answer,
         };
       } else {
@@ -62,7 +53,7 @@ export const interactQuestion = ({
 }) => {
   menu.interact(
     ctx => {
-      const emptyField = ctx.i18n.t('REQUEST_CREATE.EMPTY_FIELD');
+      const emptyField = ctx.i18n.t('AUTH.EMPTY_FIELD');
       const text = ctx.i18n.t(nameTid, {
         value: ctx.session?.form?.[field] || emptyField,
       });

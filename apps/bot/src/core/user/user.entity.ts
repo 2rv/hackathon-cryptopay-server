@@ -4,13 +4,9 @@ import {
   PrimaryGeneratedColumn,
   CreateDateColumn,
   Column,
-  OneToOne,
-  OneToMany,
-  JoinColumn,
 } from 'typeorm';
-import { UserBalanceEntity } from '../payment/user-balance.entity';
 
-@Entity({ name: 'user' })
+@Entity({ name: 'telegram_user' })
 export class UserEntity extends BaseEntity {
   @PrimaryGeneratedColumn()
   id: number;
@@ -18,12 +14,8 @@ export class UserEntity extends BaseEntity {
   @Column({ nullable: false, type: 'integer' })
   telegramId: number;
 
-  @OneToOne(
-    type => UserBalanceEntity,
-    balance => balance.user,
-    { eager: false },
-  )
-  balance: UserBalanceEntity;
+  @Column({ nullable: true, type: 'varchar' })
+  login: string;
 
   @CreateDateColumn()
   createDate: string;

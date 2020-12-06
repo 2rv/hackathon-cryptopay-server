@@ -19,7 +19,7 @@ export class UserBalanceService {
     return this.userBalanceRepository.createUserBalance(user);
   }
 
-  async getAccountBalance(user: User): Promise<UserBalanceDto> {
+  async getAccountBalance(user): Promise<UserBalanceDto> {
     const balance = await this.userBalanceRepository.findOne({
       where: { user },
     });

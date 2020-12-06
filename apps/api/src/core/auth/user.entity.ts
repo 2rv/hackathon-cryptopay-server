@@ -5,14 +5,13 @@ import {
   PrimaryGeneratedColumn,
   Column,
   OneToOne,
-  OneToMany,
   CreateDateColumn,
 } from 'typeorm';
 import { UserRole } from '../../enums/user-role.enum';
 import { UserBalance } from '../payment/user-balance/user-balance.entity';
 import { generatePasswordSalt, generateBcryptHash } from 'libs/utils';
 
-@Entity()
+@Entity({ name: 'user' })
 @Unique(['login'])
 export class User extends BaseEntity {
   @PrimaryGeneratedColumn()
