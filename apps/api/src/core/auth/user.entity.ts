@@ -11,6 +11,7 @@ import {
 import { UserRole } from '../../enums/user-role.enum';
 import { UserBalance } from '../payment/user-balance/user-balance.entity';
 import { generatePasswordSalt, generateBcryptHash } from 'libs/utils';
+import { Transfer } from '../transfer/transfer.entity';
 
 @Entity()
 @Unique(['login'])
@@ -38,6 +39,13 @@ export class User extends BaseEntity {
     { eager: false },
   )
   balance: UserBalance;
+
+  @OneToMany(
+    type => Transfer,
+    transfer => transfer.user,
+    { eager: false },
+  )
+  transfer: Transfer;
 
   @CreateDateColumn()
   createDate: string;
