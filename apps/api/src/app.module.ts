@@ -5,6 +5,7 @@ import { ConfigModule } from '@nestjs/config';
 import { AuthModule } from './core/auth/auth.module';
 import { BitcoinModule } from './core/bitcoin/bitcoin.module';
 import { PaymentModule } from './core/payment/payment.module';
+import { TransferModule } from './core/transfer/transfer.module';
 
 @Module({
   providers: [],
@@ -17,6 +18,7 @@ import { PaymentModule } from './core/payment/payment.module';
     AuthModule,
     BitcoinModule,
     PaymentModule,
+    TransferModule,
   ],
 })
 export class AppModule {}
