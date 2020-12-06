@@ -21,6 +21,7 @@ import { AccountGuard } from '../../guards/account.guard';
 import { Payment } from './payment.entity';
 import { CreatePaymentRequestDto } from './dto/create-payment-request.dto';
 import { PaymentService } from './payment.service';
+import { PaymentHistory } from './payment-history.entity';
 
 @Controller('payment')
 export class PaymentController {
@@ -47,6 +48,14 @@ export class PaymentController {
       user,
       createPaymentRequestDto,
     );
+  }
+
+  @Post('/transfer/history')
+  @UseGuards(AuthGuard())
+  async getTransferHistory(
+    @GetAccount() user: User,
+  ): Promise<PaymentHistory[]> {
+    return this.paymentService.getPaymentHistory(user);
   }
 
   @Post('/transfer/:transferId/pay')

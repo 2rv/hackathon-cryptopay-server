@@ -13,6 +13,7 @@ import { UserRole } from '../../enums/user-role.enum';
 import { UserBalance } from '../payment/user-balance/user-balance.entity';
 import { generatePasswordSalt, generateBcryptHash } from 'libs/utils';
 import { Payment } from '../payment/payment.entity';
+import { PaymentHistory } from '../payment/payment-history.entity';
 
 @Entity()
 @Unique(['login'])
@@ -48,6 +49,14 @@ export class User extends BaseEntity {
   )
   @JoinColumn()
   payment: Payment;
+
+  @OneToMany(
+    type => PaymentHistory,
+    paymentHistory => paymentHistory.user,
+    { eager: false },
+  )
+  @JoinColumn()
+  paymentHistory: PaymentHistory;
 
   @CreateDateColumn()
   createDate: string;

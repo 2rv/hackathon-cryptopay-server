@@ -10,12 +10,17 @@ import { UserBalanceService } from './user-balance/user-balance.service';
 import { PaymentCurrencyService } from './payment-currency.service';
 import { PaymentRepository } from './payment.repository';
 import { PaymentService } from './payment.service';
+import { PaymentHistoryRepository } from './payment-history.repository';
 
 @Module({
   imports: [
     forwardRef(() => AuthModule),
     forwardRef(() => BitcoinModule),
-    TypeOrmModule.forFeature([UserBalanceRepository, PaymentRepository]),
+    TypeOrmModule.forFeature([
+      UserBalanceRepository,
+      PaymentRepository,
+      PaymentHistoryRepository,
+    ]),
   ],
   controllers: [PaymentController],
   providers: [

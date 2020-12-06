@@ -8,9 +8,11 @@ import {
   UpdateDateColumn,
   Generated,
   PrimaryColumn,
+  JoinColumn,
+  OneToMany,
 } from 'typeorm';
 import { User } from '../auth/user.entity';
-import { UserBalance } from '../payment/user-balance/user-balance.entity';
+import { PaymentHistory } from './payment-history.entity';
 
 @Entity()
 export class Payment extends BaseEntity {
@@ -24,8 +26,13 @@ export class Payment extends BaseEntity {
   @Column({ type: 'float', nullable: false })
   amount: number;
 
-  @Column({ type: 'boolean', default: false })
-  active: boolean;
+  @OneToMany(
+    type => PaymentHistory,
+    paymentHistory => paymentHistory.payment,
+    { eager: false },
+  )
+  @JoinColumn()
+  paymentHistory: PaymentHistory;
 
   @ManyToOne(
     type => User,
