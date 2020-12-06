@@ -1,0 +1,31 @@
+COMMON:
+  BUTTON_BACK: 'Назад'
+  BUTTON_MAIN_BACK: 'На главную'
+  LOADING: 'Загрузка...'
+  EMPTY_LIST: 'Список пустой'
+  BOT_LINK: '@uqXX23RZkVqkzAK557dF2J4t_bot'
+
+WELCOME:
+  TITLE: 'Добро пожаловать в CryptoPay! Авторизируйтесь, чтобы пользоваться функционалом'
+  TITLE_AUTH: 'Привет, {{login}}. Добро пожаловать в CryptoPay!'
+
+FAQ:
+  INFO: 'Используя этот бот, вы можете посмотреть статус своего баланса'
+
+MAIN_MENU:
+  FAQ: 'FAQ'
+  BALANCE: 'Баланс'
+  AUTH: 'Авторизация'
+
+BALANCE:
+  STATUS: "*Баланс аккаунта*:\n{{uah}} UAH | {{usd}} USD | {{btc}} BTC"
+
+AUTH:
+  TITLE: "*Авторизация:* \n"
+  LOGIN: 'Логин - {{value}}'
+  LOGIN_PLACEHOLDER: 'Введите логин'
+  PASSWORD: 'Пароль - {{value}}'
+  PASSWORD_PLACEHOLDER: 'Введите пароль'
+  CLEAR: 'Очистить поля'
+  SUBMIT: 'Войти'
+  EMPTY_FIELD: 'Не указано'

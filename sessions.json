@@ -1,0 +1,21 @@
+{
+  "sessions": [
+    {
+      "id": "466414242:466414242",
+      "data": {
+        "form": null,
+        "repliedMenu": 305,
+        "questionId": 303,
+        "form_error": 217,
+        "noLoggedUserId": 466414242,
+        "logged": true,
+        "user": {
+          "telegramId": 466414242,
+          "login": "admin",
+          "id": 13,
+          "createDate": "2020-12-06T12:24:48.770Z"
+        }
+      }
+    }
+  ]
+}

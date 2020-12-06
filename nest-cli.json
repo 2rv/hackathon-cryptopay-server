@@ -26,15 +26,6 @@
         "tsConfigPath": "apps/observe/tsconfig.app.json"
       }
     },
-    "static": {
-      "type": "application",
-      "root": "apps/static",
-      "entryFile": "main",
-      "sourceRoot": "apps/static/src",
-      "compilerOptions": {
-        "tsConfigPath": "apps/static/tsconfig.app.json"
-      }
-    },
     "bitcoin-api": {
       "type": "library",
       "root": "libs/bitcoin-api",
@@ -42,15 +33,6 @@
       "sourceRoot": "libs/bitcoin-api/src",
       "compilerOptions": {
         "tsConfigPath": "libs/bitcoin-api/tsconfig.lib.json"
-      }
-    },
-    "captcha": {
-      "type": "library",
-      "root": "libs/captcha",
-      "entryFile": "index",
-      "sourceRoot": "libs/captcha/src",
-      "compilerOptions": {
-        "tsConfigPath": "libs/captcha/tsconfig.lib.json"
       }
     },
     "utils": {
@@ -62,13 +44,13 @@
         "tsConfigPath": "libs/utils/tsconfig.lib.json"
       }
     },
-    "admin": {
+    "bot": {
       "type": "application",
-      "root": "apps/admin",
+      "root": "apps/bot",
       "entryFile": "main",
-      "sourceRoot": "apps/admin/src",
+      "sourceRoot": "apps/bot/src",
       "compilerOptions": {
-        "tsConfigPath": "apps/admin/tsconfig.app.json"
+        "tsConfigPath": "apps/bot/tsconfig.app.json"
       }
     }
   }
