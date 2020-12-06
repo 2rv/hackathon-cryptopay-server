@@ -14,6 +14,7 @@ import { UserBalance } from '../payment/user-balance/user-balance.entity';
 import { generatePasswordSalt, generateBcryptHash } from 'libs/utils';
 import { Payment } from '../payment/payment.entity';
 import { PaymentHistory } from '../payment/payment-history.entity';
+import { Transfer } from '../transfer/transfer.entity';
 
 @Entity()
 @Unique(['login'])
@@ -57,6 +58,11 @@ export class User extends BaseEntity {
   )
   @JoinColumn()
   paymentHistory: PaymentHistory;
+    type => Transfer,
+    transfer => transfer.user,
+    { eager: false },
+  )
+  transfer: Transfer;
 
   @CreateDateColumn()
   createDate: string;
