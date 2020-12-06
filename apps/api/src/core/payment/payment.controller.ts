@@ -58,11 +58,19 @@ export class PaymentController {
     return this.paymentService.getPaymentHistory(user);
   }
 
+  @Get('/request/:requestId/pay')
+  @UseGuards(AuthGuard())
+  async getTransferById(
+    @Param('requestId') requestId: string,
+  ): Promise<Payment> {
+    return this.paymentService.getTransferByHash(requestId);
+  }
+
   @Post('/request/:requestId/pay')
   @UseGuards(AuthGuard())
   async payTransferById(
     @GetAccount() user: User,
-    @Param('requestId') requestId: number,
+    @Param('requestId') requestId: string,
   ): Promise<void> {
     return this.paymentService.payTransferByHash(requestId, user);
   }

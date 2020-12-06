@@ -32,7 +32,13 @@ export class PaymentService {
     return this.paymentRepository.createPayment(createPaymentRequestDto, user);
   }
 
-  async payTransferByHash(transferId: number, user: User): Promise<void> {
+  async getTransferByHash(transferId: string): Promise<Payment> {
+    return this.paymentRepository.findOne({
+      where: [{ hash: transferId }],
+    });
+  }
+
+  async payTransferByHash(transferId: string, user: User): Promise<void> {
     const payment = await this.paymentRepository.findOne({
       where: [{ hash: transferId }],
       relations: ['user'],
